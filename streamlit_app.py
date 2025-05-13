@@ -4,7 +4,7 @@ from snowflake.snowpark.functions import col
 import requests
 
 # Write directly to the app
-st.title(f"Customize Your Smoothie! :cup_with_straw:")
+st.title(":cup_with_straw: Customize Your Smoothie! :cup_with_straw:")
 st.write(
   """ Choose the fruit you want in your custom Smoothie!
   """)
@@ -14,14 +14,6 @@ st.write("The name on your Smoothie will be:", name_on_order)
 
 cnx = st.connection("snowflake")
 session = cnx.session()
-#connection_parameters = {
-#  "account": "ACDQBKQ-CEB47277",
-#  "user":,
-#  "password":
-#}
-
-#new_session = Session.builder.configs(connection_parameters).create()
-session = get_active_session()
 my_dataframe = session.table("SMOOTHIES.PUBLIC.FRUIT_OPTIONS").select(col('FRUIT_NAME'))
 #st.dataframe (data=my_dataframe, use_container_width=True)
 
